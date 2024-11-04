@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const cors = require("cors");
 const fs = require("fs");
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/player/:id", async (req, res) => {
   const { id } = req.params;
